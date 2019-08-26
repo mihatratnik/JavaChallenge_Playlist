@@ -40,4 +40,8 @@ public class Song {
     public void setSongDuration(String songDuration) {
         this.songDuration = songDuration;
     }
+
+    public String getSongInfo() {
+        return songTitle + " -- " + songDuration;
+    }
 }

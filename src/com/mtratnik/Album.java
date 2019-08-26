@@ -1,5 +1,7 @@
 package com.mtratnik;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.ListIterator;
 
@@ -57,16 +59,17 @@ public class Album {
             }
         }
 
-        songListIterator.add(new Song(songTitle, songDuration));
+        songList.add(new Song(songTitle, songDuration));
         System.out.println("Song '" + songTitle + "' added to album '" + this.albumTitle + "'.");
         return true;
     }
 
-    public void listSongs(String albumTitle) {
-        ListIterator<Song> songListIterator = songList.listIterator();
+    // todo: print a list of song of an album
+    public void listSongs() {
+        ListIterator<Song> songListIterator = this.songList.listIterator();
 
         while (songListIterator.hasNext()) {
-            System.out.println("Song #" + songListIterator.nextIndex() + ": " + songListIterator.next().getSongTitle() + " ---- " + songListIterator.next().getSongDuration());
+            System.out.println(songListIterator.next().getSongInfo());;
         }
     }
 }
