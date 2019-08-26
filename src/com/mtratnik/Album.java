@@ -60,16 +60,27 @@ public class Album {
         }
 
         songList.add(new Song(songTitle, songDuration));
-        System.out.println("Song '" + songTitle + "' added to album '" + this.albumTitle + "'.");
+//        System.out.println("Song '" + songTitle + "' added to album '" + this.albumTitle + "'.");
         return true;
     }
 
-    // todo: print a list of song of an album
     public void listSongs() {
         ListIterator<Song> songListIterator = this.songList.listIterator();
 
         while (songListIterator.hasNext()) {
             System.out.println(songListIterator.next().getSongInfo());;
         }
+    }
+
+    public Song getSong(String songTitle) {
+        for (int i = 0; i < songList.size(); i++) {
+            Song song = songList.get(i);
+
+            if (songTitle.equals(song.getSongTitle())) {
+                return song;
+            }
+        }
+
+        return null;
     }
 }
